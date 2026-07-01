@@ -8,7 +8,10 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 936737bb15d0414b3f0aaa1cc51f6ccd5dd3ddbb
 import java.util.stream.StreamSupport;
 
 @RestController
@@ -31,18 +34,38 @@ public class ProdutoController {
     }
 
     @GetMapping("/{id}")
+<<<<<<< HEAD
     public ResponseEntity<ProdutoResponseDTO> buscar(@PathVariable Long id) {
 
         Produto produto = service.buscarPorId(id);
 
         return ResponseEntity.ok(ProdutoResponseDTO.fromEntity(produto));
+=======
+    public ResponseEntity<ProdutoResponseDTO> buscar(
+            @PathVariable Long id) {
+
+        Produto produto = service.buscarPorId(id);
+
+        return ResponseEntity.ok(
+                ProdutoResponseDTO.fromEntity(produto));
+>>>>>>> 936737bb15d0414b3f0aaa1cc51f6ccd5dd3ddbb
     }
 
     @PostMapping
     public ResponseEntity<ProdutoResponseDTO> criar(
             @Valid @RequestBody ProdutoRequestDTO dto) {
 
+<<<<<<< HEAD
         Produto salvo = service.salvar(dto);
+=======
+        Produto produto = new Produto();
+
+        produto.setNome(dto.nome());
+        produto.setPreco(dto.preco());
+        produto.setDescricao(dto.descricao());
+
+        Produto salvo = service.salvar(produto);
+>>>>>>> 936737bb15d0414b3f0aaa1cc51f6ccd5dd3ddbb
 
         return ResponseEntity.status(201)
                 .body(ProdutoResponseDTO.fromEntity(salvo));
@@ -54,6 +77,10 @@ public class ProdutoController {
             @Valid @RequestBody ProdutoRequestDTO dto) {
 
         Produto produto = new Produto();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 936737bb15d0414b3f0aaa1cc51f6ccd5dd3ddbb
         produto.setNome(dto.nome());
         produto.setPreco(dto.preco());
         produto.setDescricao(dto.descricao());
@@ -65,10 +92,20 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{id}")
+<<<<<<< HEAD
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
+=======
+    public ResponseEntity<Void> deletar(
+            @PathVariable Long id) {
+>>>>>>> 936737bb15d0414b3f0aaa1cc51f6ccd5dd3ddbb
 
         service.deletar(id);
 
         return ResponseEntity.noContent().build();
     }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> 936737bb15d0414b3f0aaa1cc51f6ccd5dd3ddbb

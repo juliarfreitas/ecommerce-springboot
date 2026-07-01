@@ -16,7 +16,14 @@ public record ProdutoRequestDTO(
         BigDecimal preco,
 
         @Size(max = 500)
+<<<<<<< HEAD
         String descricao,
 
         Long categoriaId
 ) {}
+=======
+        String descricao
+
+) {
+}
+>>>>>>> 936737bb15d0414b3f0aaa1cc51f6ccd5dd3ddbb
